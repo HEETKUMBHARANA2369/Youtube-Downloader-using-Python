@@ -16,6 +16,9 @@ To run this application, you'll need:
 - `customtkinter` library
 - `PIL` (Pillow) library
 - `requests` library
+  IMAGES
+  ![image](https://github.com/user-attachments/assets/5b10fbad-6526-4d42-b295-ab5c89415ed4)
+
 
 You can install the required libraries using pip:
 
@@ -23,5 +26,4 @@ You can install the required libraries using pip:
 pip install customtkinter Pillow requests
 
 
-![image](https://github.com/user-attachments/assets/847e7e0e-9bda-48cf-9f8c-c2ef13226bde)
 
