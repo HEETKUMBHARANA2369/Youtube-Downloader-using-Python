@@ -21,3 +21,7 @@ You can install the required libraries using pip:
 
 ```bash
 pip install customtkinter Pillow requests
+
+
+![image](https://github.com/user-attachments/assets/847e7e0e-9bda-48cf-9f8c-c2ef13226bde)
+
