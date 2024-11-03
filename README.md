@@ -1,35 +1,21 @@
 # YouTube Video Downloader
 
-A simple and efficient YouTube video downloader application built with Python using the `customtkinter` library for the GUI and the `requests` library for making HTTP requests. This application allows users to download YouTube videos in various qualities by pasting the video URL.
+![YouTube Video Downloader](https://github.com/user-attachments/assets/5b10fbad-6526-4d42-b295-ab5c89415ed4)
+
+A Python YouTube video downloader with a user-friendly GUI built using `customtkinter`. This app allows users to paste video URLs, select download quality, and track progress. It's a simple tool for efficiently downloading videos from YouTube in various formats.
 
 ## Features
+- Easy-to-use interface
+- Download videos in multiple quality options
+- Progress tracking during download
 
-- **User-friendly GUI:** Intuitive interface for easy interaction.
-- **Quality Selection:** Download videos in multiple quality options.
-- **Progress Bar:** Visual feedback on download progress.
-- **Error Handling:** Notifications for issues such as invalid URLs or download errors.
+## Usage
+1. Clone the repository.
+2. Install the required packages using `pip install -r requirements.txt`.
+3. Run the application with `python app.py`.
 
-## Requirements
+## Credits
+This project uses the API provided by [Parthsadaria's GitHub Repository](https://github.com/Parthsadaria) for video info retrieval. Special thanks to Parthsadaria for their contribution!
 
-To run this application, you'll need:
-- Python 3.x
-- `customtkinter` library
-- `PIL` (Pillow) library
-- `requests` library
-
-You can install the required libraries using pip:
-
-```bash
-pip install customtkinter Pillow requests
-
-
-
-
-
-
-
-
-
-```
-IMAGES
- ![image](https://github.com/user-attachments/assets/5b10fbad-6526-4d42-b295-ab5c89415ed4)
+## License
+This project is licensed under the MIT License.
