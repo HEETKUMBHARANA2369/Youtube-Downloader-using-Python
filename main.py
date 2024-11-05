@@ -5,7 +5,9 @@ import json
 import threading
 import tkinter.messagebox as messagebox
 import os
+import re
 
+# Initialize the main window
 base_window = CTk()
 base_window.title("Youtube Video Downloader")
 base_window.geometry("500x450")  # Increased height to accommodate progress bar
@@ -16,7 +18,7 @@ def exit(key):
     base_window.destroy()
 base_window.bind("<Escape>", exit)
 
-# Create a global variable to store the list of (quality, url) tuples
+# Global variable to store list of (quality, url) tuples
 quality_list = []
 
 # Submit button binding
@@ -36,6 +38,9 @@ def Search():
         video_data = response.json()
         # Extract the title from the nested "response" dictionary
         video_title = video_data.get("response").get("title", "Title not available")
+        # Remove or replace invalid characters in Windows filenames
+        video_title = re.sub(r'[<>:"/\\|?*]', "", video_title)
+
         if len(video_title) <= 50:
             title_label_font.configure(size=15)
         else:
@@ -47,20 +52,16 @@ def Search():
 
         formats = video_data.get("response").get("formats")
         for item in formats:
-            quality = item.get("quality")  # Assuming quality key holds the quality name
-            vid_type = item.get("type")
-            print(vid_type)  # Assuming quality key holds the quality name
+            quality = item.get("quality")
             url = item.get("url")
             if quality and url:
                 quality_list.append((quality, url))  # Append a tuple (quality, url) to the list
-        # print(quality_list) to see the quality list, uncomment this 
-        
-        dropdown.configure(values=[q[0] for q in quality_list])  # display qualities in dropdown
 
+        dropdown.configure(values=[q[0] for q in quality_list])  # Display qualities in dropdown
     else:
         print("Error retrieving video info:", response.status_code)
 
-# Function to be run in a separate thread for video download
+# Function to download video in a separate thread
 def download():
     selected_quality = dropdown.get()
     print(f"User selected {selected_quality}")
@@ -81,7 +82,7 @@ def download():
     # Download the video
     download_response = requests.get(video_url, stream=True)
     total_size = int(download_response.headers.get('content-length', 0))
-    block_size = 4096  # 1 Kibibyte
+    block_size = 4096  # 4 KiB
     downloaded = 0
 
     with open(f'{video_title}.mp4', 'wb') as video_file:
