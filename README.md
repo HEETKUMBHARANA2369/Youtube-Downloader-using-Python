@@ -8,9 +8,11 @@ A Python YouTube video downloader with a user-friendly GUI built using `customtk
 - Easy-to-use interface
 - Download videos in multiple quality options
 - Progress tracking during download
+- Right now,because of our API related problems, users can only download first selected 360p videos, with audio, other qualities are not having audio, there is an issue with that because of our API
 
 ## Credits
 This project uses the API provided by [Parthsadaria's GitHub Repository](https://github.com/Parthsadaria) for video info retrieval. Special thanks to Parthsadaria for their contribution!
 
 ## License
 This project is licensed under the MIT License.
+
